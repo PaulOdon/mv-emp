@@ -1,0 +1,40 @@
+import React from "react";
+import Container from "@mui/material/Container";
+import { Button, Grid, Divider, Typography, Stack } from "@mui/material";
+import { SectionNavigation } from "../../contracts/ListContract";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Link from "next/link";
+import FonctionForm from "./FonctionForm";
+import FonctionList from "./table/FonctionList";
+
+const FonctionSection = () => {
+  return (
+    <Container maxWidth="xl">
+      <Stack>
+        <SectionNavigation
+          direction="row"
+          justifyContent="space-between"
+          mb={1}
+        >
+          <Link href="/">
+            <Button color="info" variant="text" startIcon={<ArrowBackIcon />}>
+              Retour
+            </Button>
+          </Link>
+          <Typography variant="h4">Fonctions</Typography>
+        </SectionNavigation>
+        <Divider />
+      </Stack>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4}>
+          <FonctionForm />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <FonctionList />
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
+
+export default FonctionSection;
